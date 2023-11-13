@@ -1,17 +1,19 @@
 import { BooksListProps } from "../types";
 import Book from "./Book";
+import ErrorMsg from "./utils/ErrorMsg";
+import Loader from "./utils/Loader";
 
 const BooksList: React.FC<BooksListProps> = ({ books, loading, error }) => {
   if (error) {
-    return <div>Error! {error?.message}</div>;
+    return <ErrorMsg error={error ?? "Error"} />
   }
 
   if (loading) {
-    return <div>Loading...</div>;
+    return <Loader/>
   }
 
   if (books.length === 0) {
-    return <div>No books found</div>;
+    return <ErrorMsg error={"No books found"}/>
   }
 
   return books.map((book) => {

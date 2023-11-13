@@ -1,11 +1,12 @@
-const Loader = () => {
+import React from "react";
+import "../../styles/loader.css";
 
-    return (
-        <div className="loader">
-        <div className="loader__spinner"></div>
-        </div>
-    );
-
-}
+const Loader: React.FC = () => {
+  return (
+    <div className="loader-wrapper">
+      <div className="loader"></div>
+    </div>
+  );
+};
 
 export default Loader;

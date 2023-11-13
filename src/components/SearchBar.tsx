@@ -1,4 +1,4 @@
-import React, { ChangeEventHandler, KeyboardEventHandler } from "react";
+import React, { ChangeEventHandler, KeyboardEventHandler, useEffect } from "react";
 import "../styles/search-bar.css";
 import { Search } from "@mui/icons-material";
 import { useLocation, useNavigate } from "react-router";
@@ -8,6 +8,15 @@ const SearchBar: React.FC = () => {
 
   const navigate = useNavigate();
   const location = useLocation();
+
+
+  useEffect(() => {
+
+    const params = new URLSearchParams(location.search);
+    const query = params.get("filter") ?? "";
+    setInput(query);
+
+  },[])
 
   const addQueryToURL = (query: string) => {
   
@@ -35,7 +44,7 @@ const SearchBar: React.FC = () => {
 
   return (
     <div className="search-container">
-      <input
+      <input value={input}
         onKeyDown={searchOnEnter}
         onChange={handleChange}
         type="text"
