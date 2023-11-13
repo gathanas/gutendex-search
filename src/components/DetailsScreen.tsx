@@ -14,6 +14,7 @@ const DetailsScreen = () => {
 
   return (
     <PageWrapper>
+       <BackButton/>
     <h1>Details</h1>
     
     <div style={{display:"flex"}}>
@@ -30,7 +31,7 @@ const DetailsScreen = () => {
         <p>Download Count: {selectedBook.download_count || "-"}</p>
       </div>
     </div>
-    <BackButton/>
+   
     </PageWrapper>
   );
 };
